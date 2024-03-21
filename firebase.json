@@ -1,5 +1,6 @@
 {
   "hosting": {
+	"site": "eggthiefhunt",
     "public": ".",
     "ignore": [
       "firebase.json",
