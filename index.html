@@ -17,7 +17,7 @@
 
         h1 {
             font-size: 46px;
-            color:burlywood;
+            color: burlywood;
         }
 
         .content-wrapper {
@@ -35,15 +35,78 @@
         .caption {
             margin-top: 20px;
             font-size: 24px;
-            color:burlywood;
+            color: burlywood;
         }
 
         .clue {
             font-size: 18px;
             margin-top: 20px;
         }
+
+        a {
+            color: cyan;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hint-popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hint-content {
+            background-color: darkslategray;
+            color: antiquewhite;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: left;
+            font-family: Arial, sans-serif;
+        }
+
+        .hint-content ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 
+    <script>
+        function showHint() {
+            document.getElementById("hintPopup").style.display = "block";
+        }
+        function closeHint() {
+            document.getElementById("hintPopup").style.display = "none";
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementsByClassName("close")[0].onclick = closeHint;
+        });
+    </script>
 </head>
 
 <body>
@@ -76,9 +139,24 @@
         01100101,01110100,01001001,01101110,01110011,01101001,01100100,01100101,00100010,00101001,00001010<br>
         <br>
     </p>
-
-
-
+    <a href="#" onclick="showHint();return false;">Trenger du et hint?</a>
+    <div id="hintPopup" class="hint-popup">
+        <div class="hint-content">
+            <span class="close">&times;</span>
+            <p><strong>Trenger du et hint?</strong></p>
+            <p>Denne oppgaven tester dine detektivevne til å avdekke skjulte meldinger. Hintet er rett foran deg, kodet
+                i et språk datamaskiner forstår godt, men mennesker sjeldent snakker.</p>
+            <p><strong>Steg for å løse gåten:</strong></p>
+            <ul>
+                <li><strong>Tenk Digitalt:</strong> Meldingen du ser er i binær kode - det grunnleggende språket
+                    datamaskiner bruker for å representere all informasjon.</li>
+                <li><strong>Bruk Verktøy:</strong> Det finnes mange online konverteringsverktøy som kan hjelpe deg.</li>
+                <li><strong>Dekod Meldingen:</strong> Når du har funnet et verktøy, bruk det til å oversette sekvensen
+                    til lesbar tekst. Den skjulte meldingen vil guide deg til neste steg i utfordringen.</li>
+            </ul>
+            <p>Lykke til! Husk, det viktigste er ikke alltid å finne svaret raskt, men å lære noe nytt på veien.</p>
+        </div>
+    </div>
 </body>
 
 </html>
